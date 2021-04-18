@@ -42,6 +42,20 @@ function isEven(x){
   return(x%2)
 }
 
+function reset(){
+  for (let i = 0; i < 7; i++)
+  {
+    for(let j = 0; j < 5; j++)
+    {
+      model.board[i][j] = '.';
+    }
+  }
+  model.next = 0;
+  model.end_game = false;
+
+  splat();
+}
+
 //the ice is thin but it holds
 function checkDiagLR(){
   for(let i = 0; i < 4; i++)
@@ -149,7 +163,6 @@ function splat(n) {
         context.stroke();
     }
 
-    
 
   for(let i = 0; i < 7; i++){
         for(let j = 0; j < 6; j++){
@@ -229,7 +242,6 @@ document.addEventListener("click", e => {
 
 document.addEventListener("DOMContentLoaded", () => {
     canvas = document.querySelector("#myCanvas");
-    //console.log("got here");
     context = canvas.getContext("2d");
     console.log(context);
     splat();
